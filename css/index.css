@@ -1,0 +1,147 @@
+/* 字体设置 */
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.noto-sans-<uniquifier> {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+/* 网页居中 */
+
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9dd4c181;
+}
+
+.menu_guide:hover,
+.life_guide:hover,
+.life_guide:hover,
+.life_guide:hover {
+    color: #9dd4c1 !important;
+}
+
+/* 字体描边调整 */
+.Exploration,
+.Evolution,
+.KilimLian {
+    -webkit-text-stroke: 1px #FFFFFF;
+}
+
+.Social {
+    -webkit-text-stroke: 1px #9dd4c1;
+}
+
+/* 滚动播放动画 */
+
+.side_content {
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.cube_black {
+    animation: fadeOpacity_black 2s infinite;
+}
+
+@keyframes fadeOpacity_black {
+    0% {
+        opacity: 0.5;
+    }
+
+    16.65% {
+        opacity: 1;
+    }
+
+    33.3% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.cube_white {
+    animation: fadeOpacity_white 2s infinite;
+}
+
+@keyframes fadeOpacity_white {
+    0% {
+        opacity: 0.5;
+    }
+
+    33.3% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+
+    66.6% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.cube_green {
+    animation: fadeOpacity_green 2s infinite;
+}
+
+@keyframes fadeOpacity_green {
+    0% {
+        opacity: 0.5;
+    }
+
+    66.6% {
+        opacity: 0.5;
+    }
+
+    83.25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.BgShadow {
+    animation: fadeOpacity_bgshadow 5s infinite;
+}
+
+@keyframes fadeOpacity_bgshadow {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
