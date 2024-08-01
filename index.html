@@ -317,19 +317,89 @@
       <div class="LoadingPage" id="LoadingPage_close" style="width: 1920px; height: 1080px; position: relative; display: block; justify-items: center; align-items: center">
         <img class="Bg" style="width: 1920px; height: 1080px; left: 0px; top: 0px; position: absolute" src="asset/index-bg.jpeg" />
         <div class="BgShadow" style="width: 1920px; height: 1080px; left: 0px; top: 0px; position: absolute; background: rgba(45, 45, 45, 0.50)"></div>
-        <div class="cube" id="Page_open" style="width: 86px; height: 100px; left: 917px; top: 490px; position: absolute;">
-          <img class="cube_frame" src="asset/menu/9B9A9A.png" style="width: 86px; height: 100px; left: 0px; top: 0px; position: absolute; opacity: 1;">
+        <div class="container" style="width: 420px; height: 600px; left: 750px; top: 330px; text-align: center; position: absolute">
+          <button class="button" onclick="toggleButton(this, 'E', 'EI')">E</button>
+          <button class="button" onclick="toggleButton(this, 'N', 'SN')">N</button>
+          <button class="button" onclick="toggleButton(this, 'F', 'TF')">F</button>
+          <button class="button" onclick="toggleButton(this, 'J', 'JP')">J</button>
+          <button class="button" onclick="toggleButton(this, 'P', 'JP')">P</button>
+          <button class="button" onclick="toggleButton(this, 'T', 'TF')">T</button>
+          <button class="button" onclick="toggleButton(this, 'S', 'SN')">S</button>
+          <button class="button" onclick="toggleButton(this, 'I', 'EI')">I</button>
+          <div id="message" class="message" style="width: 380px; height: 100px; left:20px; top: 420px; position: absolute; font-size: 24px;color: white; font-family: Noto Sans; font-weight: 500; word-wrap: break-word"></div></div>
+        <div class="cube" id="Page_open" style="width: 86px; height: 100px; left: 917px; top: 490px; position: absolute">
           <img class="cube_black" src="asset/menu/2D2D2D.png" style="width: 83px; height: 49px; left: 2px; top: 2px; position: absolute; opacity: 1;">
           <img class="cube_white" src="asset/menu/FFFFFF.png" style="width: 41.5px; height: 71px; left: 43.5px; top: 27px; position: absolute; opacity: 1;">
-          <img class="cube_green" src="asset/menu/9DD4C1.png" style="width: 41.5px; height: 71px; left: 2px; top: 27px; position: absolute; opacity: 1;">
+          <img class="cube_green" src="asset/menu/9DD4C1.png" style="width: 41.5px; height: 71px; left: 2px; top: 27px; position: absolute; opacity: 1;">  
+          <img class="cube_frame" src="asset/menu/9B9A9A.png" onclick="validateSelection()" style="width: 86px; height: 100px; left: 0px; top: 0px; position: absolute; opacity: 1;">
         </div>
       </div>
-      <script>
-        document.getElementById('Page_open').addEventListener('click', function() {
-          document.getElementById('LoadingPage_close').style.display = 'none';
-            document.getElementById('target_page').style.display = 'block';
-        });
 
+      <script>
+        /* loadiing page password */
+          const correctButtons = ['I', 'N', 'T', 'P'];
+          let selectedButtons = [];
+          let selectedGroups = {
+            EI: null,
+            SN: null,
+            TF: null,
+            JP: null
+          };
+          let attempts = 3;
+        
+          function toggleButton(button, letter, group) {
+            if (selectedGroups[group] === letter) {
+              // cancel selected
+              selectedGroups[group] = null;
+              selectedButtons = selectedButtons.filter(l => l !== letter);
+              button.classList.remove('selected');
+            } else {
+              // cancel group selected
+              if (selectedGroups[group] !== null) {
+                document.querySelectorAll('.button').forEach(btn => {
+                  if (btn.textContent === selectedGroups[group]) {
+                    btn.classList.remove('selected');
+                  }
+                });
+                selectedButtons = selectedButtons.filter(l => l !== selectedGroups[group]);
+              }
+              // retry
+              selectedGroups[group] = letter;
+              selectedButtons.push(letter);
+              button.classList.add('selected');
+            }
+          }
+        
+          function validateSelection() {
+            const message = document.getElementById('message');
+          
+            if (selectedButtons.length !== 4) {
+              message.textContent = 'Please select exactly 4 buttons.';
+              return;
+            }
+          
+            attempts--;
+          
+            const isCorrect = selectedButtons.sort().toString() === correctButtons.sort().toString();
+            if (isCorrect) {
+              message.textContent = 'Bingo, Loading Page...';
+              disableAllButtons();
+                document.getElementById('LoadingPage_close').style.display = 'none';
+                  document.getElementById('target_page').style.display = 'block';
+            } else if (attempts > 0) {
+              message.textContent = `Incorrect selection. You have ${attempts} attempt(s) left.`;
+            } else {
+              message.textContent = 'No attempts left. You failed to select the correct buttons.';
+              disableAllButtons();
+            }
+          }
+
+          function disableAllButtons() {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => button.disabled = true);
+          }
+
+        /* Page1 */
         document.getElementById('language_open').addEventListener('click', function() {
           document.getElementById('language_close').style.display = 'block';
             document.getElementById('language_open').style.display = 'none';

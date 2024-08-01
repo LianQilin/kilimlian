@@ -145,3 +145,62 @@ body {
         opacity: 0.8;
     }
 }
+
+/* loading page password */
+.button {
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: rgb(255, 255, 255, 0);
+    border: 2px solid white;
+    border-radius: 50px;
+    position: absolute;
+}
+
+.button:nth-child(1) {
+    left: 20px;
+    top: 20px;
+}
+
+.button:nth-child(2) {
+    left: 140px;
+    top: 20px;
+}
+
+.button:nth-child(3) {
+    right: 20px;
+    top: 20px;
+}
+
+.button:nth-child(4) {
+    left: 20px;
+    top: 140px;
+}
+
+.button:nth-child(5) {
+    right: 20px;
+    top: 140px;
+}
+
+.button:nth-child(6) {
+    left: 20px;
+    top: 260px;
+}
+
+.button:nth-child(7) {
+    left: 140px;
+    top: 260px;
+}
+
+.button:nth-child(8) {
+    right: 20px;
+    top: 260px;
+}
+
+.button.selected {
+    background-color: #9dd4c1;
+}
