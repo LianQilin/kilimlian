@@ -374,7 +374,7 @@
             const message = document.getElementById('message');
           
             if (selectedButtons.length !== 4) {
-              message.textContent = 'Please select exactly 4 buttons.';
+              message.textContent = 'Please select my MBTI.';
               return;
             }
           
@@ -387,7 +387,7 @@
                 document.getElementById('LoadingPage_close').style.display = 'none';
                   document.getElementById('target_page').style.display = 'block';
             } else if (attempts > 0) {
-              message.textContent = `Incorrect selection. You have ${attempts} attempt(s) left.`;
+              message.textContent = `Incorrect. You have ${attempts} attempt(s) left. Don't know? Go and ask Kilim:)`;
             } else {
               message.textContent = 'No attempts left. You failed to select the correct buttons.';
               disableAllButtons();
