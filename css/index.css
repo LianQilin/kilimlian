@@ -58,7 +58,7 @@ body {
 }
 
 .cube_black {
-    animation: fadeOpacity_black 2s infinite;
+    animation: fadeOpacity_black 3s infinite;
 }
 
 @keyframes fadeOpacity_black {
@@ -66,11 +66,15 @@ body {
         opacity: 0.5;
     }
 
-    16.65% {
+    10% {
         opacity: 1;
     }
 
-    33.3% {
+    34% {
+        opacity: 1;
+    }
+
+    44% {
         opacity: 0.5;
     }
 
@@ -80,7 +84,7 @@ body {
 }
 
 .cube_white {
-    animation: fadeOpacity_white 2s infinite;
+    animation: fadeOpacity_white 3s infinite;
 }
 
 @keyframes fadeOpacity_white {
@@ -88,16 +92,20 @@ body {
         opacity: 0.5;
     }
 
-    33.3% {
+    34% {
         opacity: 0.5;
     }
 
-    50% {
+    44% {
+        opacity: 1;
+    }
+
+    67% {
         opacity: 1;
     }
 
 
-    66.6% {
+    77% {
         opacity: 0.5;
     }
 
@@ -107,25 +115,30 @@ body {
 }
 
 .cube_green {
-    animation: fadeOpacity_green 2s infinite;
+    animation: fadeOpacity_green 3s infinite;
 }
 
 @keyframes fadeOpacity_green {
     0% {
+        opacity: 1;
+    }
+
+    10% {
         opacity: 0.5;
     }
 
-    66.6% {
+    67% {
         opacity: 0.5;
     }
 
-    83.25% {
+    77% {
         opacity: 1;
     }
 
     100% {
-        opacity: 0.5;
+        opacity: 1;
     }
+
 }
 
 .BgShadow {
