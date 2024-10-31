@@ -334,13 +334,16 @@
           <button class="button" onclick="toggleButton(this, 'T', 'TF')">T</button>
           <button class="button" onclick="toggleButton(this, 'S', 'SN')">S</button>
           <button class="button" onclick="toggleButton(this, 'I', 'EI')">I</button>
-          <div id="message" class="message" style="width: 380px; height: 100px; left:20px; top: 420px; position: absolute; font-size: 24px;color: white; font-family: Noto Sans; font-weight: 500; word-wrap: break-word"></div></div>
+          <div id="message" class="message" style="width: 380px; height: 100px; left:20px; top: 420px; position: absolute; font-size: 24px;color: white; font-family: Noto Sans; font-weight: 500; word-wrap: break-word"></div>
+        </div>
         <div class="cube" id="Page_open" style="width: 86px; height: 100px; left: 917px; top: 490px; position: absolute">
           <img class="cube_black" src="asset/menu/2D2D2D.png" style="width: 83px; height: 49px; left: 2px; top: 2px; position: absolute; opacity: 1;">
           <img class="cube_white" src="asset/menu/FFFFFF.png" style="width: 41.5px; height: 71px; left: 43.5px; top: 27px; position: absolute; opacity: 1;">
           <img class="cube_green" src="asset/menu/9DD4C1.png" style="width: 41.5px; height: 71px; left: 2px; top: 27px; position: absolute; opacity: 1;">  
           <img class="cube_frame" src="asset/menu/9B9A9A.png" onclick="validateSelection()" style="width: 86px; height: 100px; left: 0px; top: 0px; position: absolute; opacity: 1;">
         </div>
+        <p class="info" style="width: 420px; height: 100px; left: 750px; top: 150px; position: absolute;text-align: center; font-size: 24px;color: white; font-family: Noto Sans; font-weight: 500; word-wrap: break-word">
+          Please enter the CODE <br/>and then click the CUBE!</p>
       </div>
 
       <script>
@@ -383,7 +386,7 @@
             const message = document.getElementById('message');
           
             if (selectedButtons.length !== 4) {
-              message.textContent = 'Please select my MBTI.';
+              message.textContent = 'Please select my MBTI';
               return;
             }
           
@@ -391,7 +394,7 @@
           
             const isCorrect = selectedButtons.sort().toString() === correctButtons.sort().toString();
             if (isCorrect) {
-              message.textContent = 'Bingo, Please click the CUBE!';
+              message.textContent = 'Bingo! Loading page...';
               disableAllButtons();
                 document.getElementById('LoadingPage_close').style.display = 'none';
                   document.getElementById('target_page').style.display = 'block';
